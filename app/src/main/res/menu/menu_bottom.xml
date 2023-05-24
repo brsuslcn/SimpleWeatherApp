@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/weather_fragment"
+        android:title="Weather"
+        android:icon="@drawable/cloud_fill_icon"/>
+    <item
+        android:id="@+id/select_fragment"
+        android:title="Select"
+        android:icon="@drawable/select_fill_icon"/>
+</menu>
