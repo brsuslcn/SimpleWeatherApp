@@ -7,22 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.databinding.FragmentWeatherBinding
-import com.example.simpleweatherapp.ui.viewmodel.WeatherFragmentViewModel
+import com.example.simpleweatherapp.ui.viewmodel.WeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class WeatherFragment : Fragment() {
     private lateinit var binding : FragmentWeatherBinding
-    private val viewModel : WeatherFragmentViewModel by viewModels()
+    private val viewModel : WeatherViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View? {
         binding = FragmentWeatherBinding.inflate(layoutInflater)
 
-        viewModel.weatherStatus("2172797")
+     /*   viewModel.weatherStatus("2172797")
 
         binding.apply{
             viewModel.weatherLiveData.observe(viewLifecycleOwner, Observer { weatherData ->
@@ -41,7 +40,7 @@ class WeatherFragment : Fragment() {
             })
         }
 
-
+*/
 
 
         return binding.root
