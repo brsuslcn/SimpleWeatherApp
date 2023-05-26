@@ -7,15 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.simpleweatherapp.util.CityClickListener
 import com.example.simpleweatherapp.databinding.FragmentSelectionBinding
 import com.example.simpleweatherapp.ui.adapter.CityAdapter
 import com.example.simpleweatherapp.ui.viewmodel.SelectionViewModel
+import com.example.simpleweatherapp.util.LocalSharedPref
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class SelectionFragment : Fragment() {
+class SelectionFragment : Fragment(), CityClickListener {
     private lateinit var binding : FragmentSelectionBinding
     private val viewModel : SelectionViewModel by viewModels()
 
@@ -23,7 +26,7 @@ class SelectionFragment : Fragment() {
         binding = FragmentSelectionBinding.inflate(layoutInflater)
 
 
-        val cityAdapter = CityAdapter()
+        val cityAdapter = CityAdapter(this, LocalSharedPref(requireContext()))
 
         viewModel.cityLiveData.observe(viewLifecycleOwner, Observer { cities ->
            cityAdapter.addItems(cities)
@@ -35,7 +38,12 @@ class SelectionFragment : Fragment() {
         }
 
 
+
         return binding.root
 
+    }
+
+    override fun onItemClick() {
+        findNavController().popBackStack()
     }
 }

@@ -1,5 +1,6 @@
 package com.example.simpleweatherapp.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.simpleweatherapp.databinding.FragmentWeatherBinding
 import com.example.simpleweatherapp.ui.viewmodel.WeatherViewModel
+import com.example.simpleweatherapp.util.LocalSharedPref
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -21,7 +23,19 @@ class WeatherFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View? {
         binding = FragmentWeatherBinding.inflate(layoutInflater)
 
-     /*   viewModel.weatherStatus("2172797")
+        val localSharedPref = LocalSharedPref(requireContext())
+        var cityId = "0" // get from Fragment (FIX IT!!!!)
+
+        binding.cityName.text = localSharedPref.isSharedPreferencesExists().toString()
+
+        cityId = if(localSharedPref.isSharedPreferencesExists()) {
+            localSharedPref.getSelectedCity().toString()
+        } else{
+            "745042" // GET FROM Fragment!!
+        }
+
+
+       viewModel.weatherStatus(cityId)
 
         binding.apply{
             viewModel.weatherLiveData.observe(viewLifecycleOwner, Observer { weatherData ->
@@ -39,8 +53,6 @@ class WeatherFragment : Fragment() {
                 weatherDesc.text = weatherData.weather[0].description
             })
         }
-
-*/
 
 
         return binding.root

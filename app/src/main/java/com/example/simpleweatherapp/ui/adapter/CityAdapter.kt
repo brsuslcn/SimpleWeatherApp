@@ -1,25 +1,33 @@
 package com.example.simpleweatherapp.ui.adapter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.simpleweatherapp.util.CityClickListener
 import com.example.simpleweatherapp.data.model.cities_model.CityModelItem
 import com.example.simpleweatherapp.databinding.CityLayoutBinding
+import com.example.simpleweatherapp.util.LocalSharedPref
 
-class CityAdapter : RecyclerView.Adapter<CityAdapter.ItemViewHolder>() {
+class CityAdapter(private val cityClickListener: CityClickListener, private val localSharedPref: LocalSharedPref) : RecyclerView.Adapter<CityAdapter.ItemViewHolder>() {
 
     private var cityList = emptyList<CityModelItem>()
 
     inner class ItemViewHolder(private val binding : CityLayoutBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item : CityModelItem)
         {
+
             binding.cityName.text = item.name
 
             binding.root.setOnClickListener()
             {
                 Log.e("info", "city name: ${item.name}, cityid: ${item.id}")
+                cityClickListener.onItemClick()
+
+                localSharedPref.writeSelectedCity(item.id.toString())
             }
+
         }
 
     }
