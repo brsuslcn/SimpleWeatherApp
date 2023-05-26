@@ -50,11 +50,7 @@ class SelectionFragment : Fragment(), CityClickListener {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = cityAdapter
 
-
             searchCity.addTextChangedListener(object : TextWatcher{
-
-
-
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
                 }
@@ -80,8 +76,6 @@ class SelectionFragment : Fragment(), CityClickListener {
 
                         })
                     }
-
-
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
@@ -89,12 +83,6 @@ class SelectionFragment : Fragment(), CityClickListener {
                 }
             })
         }
-
-
-
-
-
-
         return binding.root
 
     }
