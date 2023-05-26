@@ -18,29 +18,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-         //setupBottomMenu()
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        NavigationUI.setupWithNavController(binding.bottomBar, navHostFragment.navController)
-
+         setupBottomMenu()
     }
 
-    private fun setupBottomMenu(id : Int? = null){
-     /*   binding.bottomBar.onItemSelected = {position ->
-            val transaction = supportFragmentManager.beginTransaction()
-            if(id != null){
-                when (position){
-                    0-> transaction.replace(binding.fragmentContainerView.id, WeatherFragment())
-                    1-> transaction.replace(binding.fragmentContainerView.id, SelectionFragment())
-                }
-            }
-
-            else{
-                    transaction.replace(binding.fragmentContainerView.id, WeatherFragment())
-            }
-
-
-            transaction.commit()
-        }*/
+    private fun setupBottomMenu(){
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        NavigationUI.setupWithNavController(binding.bottomBar, navHostFragment.navController)
     }
 }

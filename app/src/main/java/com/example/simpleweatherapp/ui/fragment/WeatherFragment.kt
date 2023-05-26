@@ -26,15 +26,8 @@ class WeatherFragment : Fragment() {
         val localSharedPref = LocalSharedPref(requireContext())
         var cityId = "0" // get from Fragment (FIX IT!!!!)
 
-        binding.cityName.text = localSharedPref.isSharedPreferencesExists().toString()
 
-        cityId = if(localSharedPref.isSharedPreferencesExists()) {
-            localSharedPref.getSelectedCity().toString()
-        } else{
-            "745042" // GET FROM Fragment!!
-        }
-
-
+        cityId = localSharedPref.getSelectedCity().toString()
        viewModel.weatherStatus(cityId)
 
         binding.apply{
@@ -53,7 +46,6 @@ class WeatherFragment : Fragment() {
                 weatherDesc.text = weatherData.weather[0].description
             })
         }
-
 
         return binding.root
     }

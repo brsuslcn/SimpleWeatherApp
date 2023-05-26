@@ -9,10 +9,12 @@ import com.example.simpleweatherapp.util.CityClickListener
 import com.example.simpleweatherapp.data.model.cities_model.CityModelItem
 import com.example.simpleweatherapp.databinding.CityLayoutBinding
 import com.example.simpleweatherapp.util.LocalSharedPref
+import java.util.Locale
 
 class CityAdapter(private val cityClickListener: CityClickListener, private val localSharedPref: LocalSharedPref) : RecyclerView.Adapter<CityAdapter.ItemViewHolder>() {
 
     private var cityList = emptyList<CityModelItem>()
+    private var searchedList : List<CityModelItem> = cityList
 
     inner class ItemViewHolder(private val binding : CityLayoutBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item : CityModelItem)
@@ -51,5 +53,4 @@ class CityAdapter(private val cityClickListener: CityClickListener, private val 
         cityList = newItem
         notifyDataSetChanged()
     }
-
 }
