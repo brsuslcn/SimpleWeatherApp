@@ -83,6 +83,7 @@ class SelectionFragment : Fragment(), CityClickListener {
                 }
             })
         }
+
         return binding.root
 
     }

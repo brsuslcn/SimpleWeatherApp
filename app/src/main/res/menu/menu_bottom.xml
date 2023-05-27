@@ -4,10 +4,8 @@
 
     <item
         android:id="@+id/weather_fragment"
-        android:title="Weather"
         android:icon="@drawable/cloud_fill_icon"/>
     <item
         android:id="@+id/select_fragment"
-        android:title="Select"
         android:icon="@drawable/select_fill_icon"/>
 </menu>
