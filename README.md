@@ -6,14 +6,16 @@ With the utilization of the OpenWeatherApi, this application provides the capabi
 <br />
 
 ## _About_
-Weather Page:
+**Weather Page:**
+
 • User is able to see city name, current temperature, feels like, highest and lowest temperature in the first part of the screen.
 
 • User is able to see humidity, wind, sea level and coordinates of the city in the middle section.
 
 • Use is able to see current weather description in the last section of the screen.
 
-City Selection Page:
+
+**City Selection Page:**
 
 • User ise able to see available cities in this tab.
 
@@ -23,7 +25,9 @@ City Selection Page:
 
 • User is able to search cities from search area.
 
-Splash Screen:
+
+**Splash Screen:**
+
 The provided JSON file is quite large. To ensure uninterrupted and lag-free user experience while utilizing the application, all data is fetched from the JSON file at the splash page. Furthermore, this data is temporarily stored in RAM, and when the city selection tab is clicked, the data is fetched from RAM.
 
 <br />
