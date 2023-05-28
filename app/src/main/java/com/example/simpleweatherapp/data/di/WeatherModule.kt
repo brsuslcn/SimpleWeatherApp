@@ -14,8 +14,13 @@ import javax.inject.Singleton
  *
  * This class is used by Hilt for dependency injection and supplies basic dependencies of the application.
  * The retrofit object is used to provide the necessary service dependencies.
+ *
+ * @see Module
+ * @see InstallIn
+ * @see SingletonComponent
+ * @see Provides
+ * @see Singleton
  */
-
 @Module
 @InstallIn(SingletonComponent::class)
 class WeatherModule {
@@ -26,6 +31,7 @@ class WeatherModule {
      * It cretes the retrofit object and configure all required settings.
      *
      * @return the retrofit object
+     *
      */
     @Provides
     @Singleton

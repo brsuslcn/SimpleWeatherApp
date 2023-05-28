@@ -8,9 +8,7 @@ import java.io.File
  *
  * @param context required context in order to access the json file.
  * @property sharedPreferences a property in order to manage sharedpreference file.
- *
  */
-
 class LocalSharedPref (private val context: Context){
 
     private val sharedPreferences = context.getSharedPreferences("SelectedCity", Context.MODE_PRIVATE)

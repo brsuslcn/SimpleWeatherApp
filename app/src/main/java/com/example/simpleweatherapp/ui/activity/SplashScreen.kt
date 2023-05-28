@@ -31,8 +31,6 @@ import kotlinx.coroutines.withContext
  * @property viewModel supplies to access SelectionViewModel and fetching cities data from the json file.
  * @property DEFAULT_CITY default cityId is determined here in order to write sharedPreferences file.
  * @property job a coroutineScope supplies to fetching data and managing the SplashScreen.
- *
- *
  */
 @AndroidEntryPoint
 class SplashScreen : AppCompatActivity() {

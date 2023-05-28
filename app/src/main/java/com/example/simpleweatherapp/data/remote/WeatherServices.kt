@@ -14,7 +14,6 @@ import retrofit2.http.Query
  * @see Query
  * @see Response
  * @see WeatherModel
- *
  */
 interface WeatherServices {
     /**

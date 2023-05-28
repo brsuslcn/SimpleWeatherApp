@@ -16,9 +16,9 @@ import dagger.hilt.components.SingletonComponent
  *
  * @see Module
  * @see InstallIn
- * @See SingletonComponent
+ * @see SingletonComponent
+ * @see Provides
  */
-
 @Module
 @InstallIn(SingletonComponent::class)
 object CitiesModule {

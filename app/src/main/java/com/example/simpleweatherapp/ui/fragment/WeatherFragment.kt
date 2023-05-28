@@ -18,6 +18,8 @@ import dagger.hilt.android.AndroidEntryPoint
  *
  * @property binding access the views of the WeatherFragment in XML file.
  * @property viewModel access the WeatherViewModel
+ *
+ * @see AndroidEntryPoint
  */
 
 @AndroidEntryPoint
@@ -32,8 +34,7 @@ class WeatherFragment : Fragment() {
         val localSharedPref = LocalSharedPref(requireContext())
 
         val cityId = localSharedPref.getSelectedCity().toString()
-        viewModel.weatherStatus(cityId)
-
+       viewModel.weatherStatus(cityId)
         binding.apply{
             viewModel.weatherLiveData.observe(viewLifecycleOwner, Observer { weatherData ->
                 cityName.text = weatherData.name
@@ -50,7 +51,6 @@ class WeatherFragment : Fragment() {
                 weatherDesc.text = weatherData.weather[0].description
             })
         }
-
         return binding.root
     }
 }

@@ -33,6 +33,7 @@ import kotlinx.coroutines.launch
  *
  * @see Fragment
  * @see CityClickListener
+ * @see AndroidEntryPoint
  */
 
 @AndroidEntryPoint
