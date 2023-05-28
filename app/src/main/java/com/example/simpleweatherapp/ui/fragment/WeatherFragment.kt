@@ -1,6 +1,6 @@
 package com.example.simpleweatherapp.ui.fragment
 
-import android.content.Context
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +13,12 @@ import com.example.simpleweatherapp.ui.viewmodel.WeatherViewModel
 import com.example.simpleweatherapp.util.LocalSharedPref
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * This class manages UI of the WeatherFragment
+ *
+ * @property binding access the views of the WeatherFragment in XML file.
+ * @property viewModel access the WeatherViewModel
+ */
 
 @AndroidEntryPoint
 class WeatherFragment : Fragment() {
@@ -24,11 +30,9 @@ class WeatherFragment : Fragment() {
         binding = FragmentWeatherBinding.inflate(layoutInflater)
 
         val localSharedPref = LocalSharedPref(requireContext())
-        var cityId = "0" // get from Fragment (FIX IT!!!!)
 
-
-        cityId = localSharedPref.getSelectedCity().toString()
-       viewModel.weatherStatus(cityId)
+        val cityId = localSharedPref.getSelectedCity().toString()
+        viewModel.weatherStatus(cityId)
 
         binding.apply{
             viewModel.weatherLiveData.observe(viewLifecycleOwner, Observer { weatherData ->

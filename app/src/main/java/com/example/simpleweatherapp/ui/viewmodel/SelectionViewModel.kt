@@ -23,5 +23,4 @@ class SelectionViewModel @Inject constructor(private val cityRepository: CityRep
     fun getCities(fileName: String) {
         _cityModel = cityRepository.getCitiesFromJsonFile(fileName)
     }
-
 }

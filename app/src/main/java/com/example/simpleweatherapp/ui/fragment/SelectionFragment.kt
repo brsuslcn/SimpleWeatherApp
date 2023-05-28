@@ -3,7 +3,6 @@ package com.example.simpleweatherapp.ui.fragment
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.simpleweatherapp.data.model.cities_model.CityModel
-import com.example.simpleweatherapp.data.model.cities_model.CityModelItem
 import com.example.simpleweatherapp.util.CityClickListener
 import com.example.simpleweatherapp.databinding.FragmentSelectionBinding
 import com.example.simpleweatherapp.ui.adapter.CityAdapter
@@ -23,17 +20,27 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+/**
+ * This class manages UI of the SelectionFragment
+ *
+ * @property binding access the views of the FragmentSelection in XML file.
+ * @property coroutineScope a CoroutineScope in order to start searchJob
+ * @property searchJob manages searching and delaying the search process in order to avoid lags and interrupts while user typing.
+ * @property viewModel access SelectionViewModel
+ *
+ * @see Fragment
+ * @see CityClickListener
+ */
 
 @AndroidEntryPoint
 class SelectionFragment : Fragment(), CityClickListener {
     private lateinit var binding : FragmentSelectionBinding
-    private val viewModel : SelectionViewModel by viewModels()
     private lateinit var coroutineScope: CoroutineScope
     private var searchJob: Job? = null
+    private val viewModel : SelectionViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View? {
         binding = FragmentSelectionBinding.inflate(layoutInflater)
@@ -50,6 +57,11 @@ class SelectionFragment : Fragment(), CityClickListener {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = cityAdapter
 
+            /**
+             * When user search a city, listen to edittext
+             *
+             * @property TextWatcher
+             */
             searchCity.addTextChangedListener(object : TextWatcher{
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -57,7 +69,6 @@ class SelectionFragment : Fragment(), CityClickListener {
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     searchJob?.cancel()
-
                     searchJob = coroutineScope.launch {
                         delay(400)
 
@@ -88,7 +99,18 @@ class SelectionFragment : Fragment(), CityClickListener {
 
     }
 
+    /**
+     * In order to access the click event on an item in an adapter, override the onItemClick method and implement it within the adapter as well.
+     */
     override fun onItemClick() {
         findNavController().popBackStack()
+    }
+
+    /**
+     * Cancel searchJob onDestroy not to cause any errors.
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+        searchJob?.cancel()
     }
 }

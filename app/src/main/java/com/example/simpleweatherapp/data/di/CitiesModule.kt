@@ -8,14 +8,35 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
+/**
+ * This module class is managed by Hilt
+ *
+ * This class is used by Hilt for dependency injection and supplies basic dependencies of the application.
+ * The dependencies of Gson and Context are supplied by this module.
+ *
+ * @see Module
+ * @see InstallIn
+ * @See SingletonComponent
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 object CitiesModule {
+
+    /**
+     * The function supplies Gson object.
+     */
     @Provides
     fun provideGson() : Gson{
         return Gson()
     }
 
+    /**
+     * The function supplies Context object.
+     *
+     * @param application Application object
+     * @return context
+     */
     @Provides
     fun provideContext(application: Application) : Context {
         return application.applicationContext

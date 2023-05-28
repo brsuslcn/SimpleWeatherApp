@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2E7FE"
     tools:context=".ui.fragment.WeatherFragment">
 
 
@@ -22,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="İstanbul"
+            android:text="City Name"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Current:"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/currentDegree"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -60,6 +60,7 @@
             android:layout_marginTop="5dp"
             android:text="Feels Like: "
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/feelingDegree"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -85,6 +86,7 @@
             android:layout_height="wrap_content"
             android:text="H:"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/maxDegree"
             app:layout_constraintHorizontal_bias="0.5"
@@ -112,6 +114,7 @@
             android:layout_marginLeft="10dp"
             android:text="L:"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/minDegree"
             app:layout_constraintHorizontal_bias="0.5"
@@ -140,6 +143,7 @@
         android:layout_margin="15dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/purple"
         app:layout_constraintBottom_toTopOf="@+id/weatherDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +153,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:background="#8069BF"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
