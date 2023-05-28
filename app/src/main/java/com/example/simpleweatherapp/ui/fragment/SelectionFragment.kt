@@ -53,6 +53,7 @@ class SelectionFragment : Fragment(), CityClickListener {
            cityAdapter.addItems(cities)
         })
 
+
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = cityAdapter

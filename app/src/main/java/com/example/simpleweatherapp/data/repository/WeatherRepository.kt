@@ -11,6 +11,9 @@ import javax.inject.Inject
  * This class is used to access city data through Weather API Services
  *
  * @param weatherServices Weather API Services.
+ * @constructor supplies the dependency injection for weatherServices
+ *
+ * @see Inject
  */
 class WeatherRepository @Inject constructor(private val weatherServices: WeatherServices) {
     /**

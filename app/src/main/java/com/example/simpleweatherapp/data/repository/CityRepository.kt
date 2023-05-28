@@ -18,6 +18,8 @@ import javax.inject.Inject
  * @param gson Gson object
  * @param context a Context object
  * @constructor The constructor used for dependency injection to obtain Gson and Context objects
+ *
+ * @see Inject
  */
 
 class CityRepository @Inject constructor(private val gson : Gson, private val context : Context) {

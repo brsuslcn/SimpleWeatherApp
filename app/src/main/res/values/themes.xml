@@ -1,14 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SimpleWeatherApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.SimpleWeatherApp" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:statusBarColor">#684EA4</item>
         <item name="android:navigationBarColor">#684EA4</item>
         <item name="android:windowBackground">@color/violet_50</item>
 
-
     </style>
-
-
 
     <style name="Theme.SimpleWeatherApp" parent="Base.Theme.SimpleWeatherApp" />
 </resources>
