@@ -51,6 +51,6 @@ During the development of the application, several dependencies were utilized in
 
 <br />
 
-**The codebase also includes KDoc, which is a documentation format specifically designed for Kotlin. Recomended Screen Sizes: 5" - 6.65"**
+**The codebase also includes KDoc, which is a documentation format specifically designed for Kotlin. Recomended Screen Sizes: between 5" - 6.65"**
 
 
