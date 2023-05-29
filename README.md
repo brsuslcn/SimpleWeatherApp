@@ -12,8 +12,9 @@ With the utilization of the OpenWeatherApi, this application provides the capabi
 
 • User is able to see humidity, wind, sea level and coordinates of the city in the middle section.
 
-• Use is able to see current weather description in the last section of the screen.
+• User is able to see current weather description in the last section of the screen.
 
+<br />
 
 **City Selection Page:**
 
@@ -25,6 +26,7 @@ With the utilization of the OpenWeatherApi, this application provides the capabi
 
 • User is able to search cities from search area.
 
+<br />
 
 **Splash Screen:**
 
